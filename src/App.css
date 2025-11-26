@@ -166,20 +166,20 @@
 
 .technology-card li.completed {
   background: linear-gradient(135deg, #96d4b0, #7692df);
-  border-left: 4px solid #43dd49;
-  border-bottom: 4px solid #43dd49;
+  border-left: 2px solid #43dd49;
+  border-bottom: 2px solid #43dd49;
 }
 
 .technology-card li.in-progress {
   background: linear-gradient(135deg, #ead872, #d6924d);
-  border-left: 4px solid #f05821;
-  border-bottom: 4px solid #f05821;
+  border-left: 2px solid #f05821;
+  border-bottom: 2px solid #f05821;
 }
 
 .technology-card li.not-started {
   background: linear-gradient(135deg, #e81616, #e57133);
-  border-left: 4px solid #ff0000;
-  border-bottom: 4px solid #ff0000;
+  border-left: 2px solid #ff0000;
+  border-bottom: 2px solid #ff0000;
 }
 
 .technology-card li:hover {

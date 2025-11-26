@@ -1,9 +1,9 @@
 function TechnologyCard() {
     const technologies = [
-        { id: 1, title: 'JSX и React', description: 'Изучение работы JSX и React уомпонентов для контррольной работы', status: 'in-prorgress' },
+        { id: 1, title: 'JSX и React', description: 'Изучение работы JSX и React уомпонентов для контррольной работы', status: 'in-progress' },
         { id: 2, title: 'SQL', description: 'Изучение функций SQL к контрольной работе', status: 'completed'},
-        { id: 3, title: 'О#', description: 'Изучение базовых функций c# к контрольной работе', status: 'not-started'},
-        { id: 4, title: 'Python', description: 'Изучение языка python для решения задач по ИИ и базам данных', status: 'in-prorgress'}
+        { id: 3, title: 'C#', description: 'Изучение базовых функций c# к контрольной работе', status: 'not-started'},
+        { id: 4, title: 'Python', description: 'Изучение языка python для решения задач по ИИ и базам данных', status: 'in-progress'}
     ];
 
     return (
