@@ -6,17 +6,34 @@ function TechnologyCard() {
         { id: 4, title: 'Python', description: 'Изучение языка python для решения задач по ИИ и базам данных', status: 'in-progress', icon: '<(￣︶￣)>'}
     ];
 
+    const statusClass = {
+        "completed": "completed",
+        "in-progress": "in-progress",
+        "not-started": "not-started"
+    };
+
     return (
         <div className="technology-card">
             <h2>Списочек задачек на попозже</h2>
-            <ul>
+            <ul className="tech-list">
                 {technologies.map(technologie => (
                     <li 
                       key={technologie.id}
-                      className={`status ${{"completed": "completed", "in-progress": "in-progress", "not-started": "not-started"}[technologie.status] || "unknown"}`}
+                      className={`tech-item ${statusClass[technologie.status] || "unknown"}`}
                     >
-                        <h2>{technologie.title}</h2>
-                        <p>{technologie.description}</p>
+                        <div className="tech-header">
+                            <h3>
+                                {technologie.icon}{technologie.title}
+                            </h3>
+                            <span className="status-label">
+                                {technologie.status === "completed" && "DONE"}
+                                {technologie.status === "in-progress" && "LOADING"}
+                                {technologie.status === "not-started" && "NOT DONE"}
+                            </span>
+                        </div>
+                        <p className="tech-description">
+                            {technologie.description}
+                        </p>
                     </li>
                 ))}
             </ul>
