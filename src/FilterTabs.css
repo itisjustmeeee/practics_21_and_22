@@ -9,7 +9,7 @@
 .filter-btn {
     padding: 10px 20px;
     border: 2px solid #e5e7eb;
-    background: white;
+    background: #5c9bff;
     border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s;
@@ -17,6 +17,6 @@
 
 .filter-btn.active {
     background: #3b82f6;
-    color: rgb(20, 19, 19);
+    color: #e5e7eb;
     border-color: #3b82f6;
 }

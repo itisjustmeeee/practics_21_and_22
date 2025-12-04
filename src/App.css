@@ -5,42 +5,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 .App {
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -61,82 +25,15 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.App-logo {
-  height: 40px;
-  pointer-events: none;
-}
-
-.App-link {
-  color: #6166fb;
-  text-decoration: none;
-}
-
-.App-link:hover {
-  text-decoration: underline;
-}
-
-.greeting {
-  background: linear-gradient(135deg, #d33939 0%, #d86fc3 100%);
-  color: black;
-  padding: 30px;
-  border-radius: 10px;
-  margin: 20px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.greeting h1 {
-  margin: 0 0 10px 0;
-  font-size: 2em;
-}
-
-.greeting p {
-  margin: 0;
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-.user-card {
-  display: flex;
-  gap: 20px;
-  background: white;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.user-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.avatar-section {
-  text-align: center;
-}
-
-.avatar-section img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #b3e7e6;
-}
-
-.avatar-section p {
-  margin-top: 10px;
-  font-size: 0.9em;
-  color: #666;
-}
-
-.user-info h3 {
-  margin: 0 0 10px 0;
-  color: #333;
-}
-
-.user-info p {
-  margin: 0;
-  color: #666;
+.App-header h1 {
+  font-size: 3.5em;
+  margin: 0 0 16px 0;
+  font-weight: 800;
+  background: linear-gradient(90deg, #fbbf24, #f87171, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .tech-grid {
