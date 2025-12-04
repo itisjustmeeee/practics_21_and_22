@@ -1,42 +1,36 @@
-function TechnologyCard() {
-    const technologies = [
-        { id: 1, title: 'JSX и React', description: 'Изучение работы JSX и React уомпонентов для контррольной работы', status: 'in-progress', icon: '(─‿‿─)'},
-        { id: 2, title: 'SQL', description: 'Изучение функций SQL к контрольной работе', status: 'completed', icon: '(¯▿¯)'},
-        { id: 3, title: 'C#', description: 'Изучение базовых функций c# к контрольной работе', status: 'not-started', icon: '(>⩊<)'},
-        { id: 4, title: 'Python', description: 'Изучение языка python для решения задач по ИИ и базам данных', status: 'in-progress', icon: '<(￣︶￣)>'}
-    ];
+import './TechnologyCard.css';
 
-    const statusClass = {
-        "completed": "completed",
-        "in-progress": "in-progress",
-        "not-started": "not-started"
-    };
+const statusConfig = {
+    'completed': {label: 'DONE', color: '#4ade80'},
+    'in-progress': {label: 'LOADING', color: '#60a5fa'},
+    'not-started': {label: 'NOT STARTED', color: '#fca5a5'}
+}
+
+function TechnologyCard({tech, onStatusChange}) {
+    const { label, color } = statusConfig[tech.status];
 
     return (
-        <div className="technology-card">
-            <h2>Списочек задачек на попозже</h2>
-            <ul className="tech-list">
-                {technologies.map(technologie => (
-                    <li 
-                      key={technologie.id}
-                      className={`tech-item ${statusClass[technologie.status] || "unknown"}`}
-                    >
-                        <div className="tech-header">
-                            <h3 className="icon">
-                                {technologie.icon}{technologie.title}
-                            </h3>
-                            <span className="status-label">
-                                {technologie.status === "completed" && "DONE"}
-                                {technologie.status === "in-progress" && "LOADING"}
-                                {technologie.status === "not-started" && "NOT DONE"}
-                            </span>
-                        </div>
-                        <p className="tech-description">
-                            {technologie.description}
-                        </p>
-                    </li>
-                ))}
-            </ul>
+        <div className = {`tech-card ${tech.status}`}
+        onClick={() => onStatusChange(tech.id)}
+        style={{
+            borderColor: color,
+            boxShadow: `0 8px 20px rgba(0,0,0,0.1)`,
+            transition: 'all 0.4s ease'
+        }}>
+            <div className='card-header'>
+                <span className='icon'>{tech.icon}</span>
+                <h3>{tech.title}</h3>
+            </div>
+
+            <p className='description'>{tech.desc}</p>
+
+            <div className='card-footer'>
+                <span className='category'>{tech.category}</span>
+                <span className='status-badge' style={{backgroundColor: color}}>
+                    {label}
+                </span>
+            </div>
+            <div className='click-hint'>Нажмите, чтобы изменить статус</div>
         </div>
     );
 }
