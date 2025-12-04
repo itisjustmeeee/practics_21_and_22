@@ -51,12 +51,14 @@
 }
 
 .App-header {
-  background-color: #697386;
-  padding: 20px;
-  color: black;
   text-align: center;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  margin: 30px 0 40px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .App-logo {
@@ -151,7 +153,7 @@
   text-align: center;
   font-size: 1.8em;
   padding: 60px 20px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(208, 70, 70, 0.8);
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
