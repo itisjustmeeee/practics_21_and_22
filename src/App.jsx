@@ -59,7 +59,7 @@ function App() {
         avatarUrl={Photo_profile}
         isOnline={true} 
       />
-      <header className="app-header">
+      <header className="App-header">
         <h1>Что-то на потом, возможно</h1>
         <Statistics technologies={technologies} />
       </header>
