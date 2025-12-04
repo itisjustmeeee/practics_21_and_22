@@ -18,7 +18,6 @@ function TechnologyCard({tech, onStatusChange}) {
             transition: 'all 0.4s ease'
         }}>
             <div className='card-header'>
-                <span className='icon'>{tech.icon}</span>
                 <h3>{tech.title}</h3>
             </div>
 

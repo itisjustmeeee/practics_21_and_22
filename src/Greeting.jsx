@@ -15,7 +15,7 @@ function Greeting() {
     return (
         <div className="greeting">
             <h1>{timeOfDay}, {userName}</h1>
-            <p>Рада видеть вас в моем приложении</p>
+            <p>Рада видеть вас в приложении</p>
         </div>
     );
 }
