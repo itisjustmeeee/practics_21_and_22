@@ -24,46 +24,46 @@ function App() {
     ];
   });
 
-    const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState('all');
 
-    useEffect(() => {
-      localStorage.setItem('technologies', JSON.stringify(technologies));
-    }, [technologies]);
+  useEffect(() => {
+    localStorage.setItem('technologies', JSON.stringify(technologies));
+  }, [technologies]);
 
-    const markAllCompleted = () => {
-        setTechnologies(prev => prev.map(t => ({...t, status: 'completed'})));
-    }
+  const markAllCompleted = () => {
+    setTechnologies(prev => prev.map(t => ({...t, status: 'completed'})));
+  }
 
-    const resetAll = () => {
-        setTechnologies(prev => prev.map(t => ({...t, status: 'not-started'})));
-    }
+  const resetAll = () => {
+    setTechnologies(prev => prev.map(t => ({...t, status: 'not-started'})));
+  }
 
-    const pickRandom = () => {
-        const notCompleted = technologies.filter(t => t.status !== 'completed');
-        if (notCompleted.length === 0) return;
-        const random = notCompleted[Math.floor(Math.random() * notCompleted.length)];
-        setTechnologies(prev => prev.map(t => t.id === random.id ? {...t, status: 'in-progress'}: t));
-    };
+  const pickRandom = () => {
+    const notCompleted = technologies.filter(t => t.status !== 'completed');
+    if (notCompleted.length === 0) return;
+    const random = notCompleted[Math.floor(Math.random() * notCompleted.length)];
+    setTechnologies(prev => prev.map(t => t.id === random.id ? {...t, status: 'in-progress'}: t));
+  };
 
-    const updateStatus = (id) => {
-        setTechnologies(prev => prev.map(t => {
-            if (t.id ===  id) {
-                const order = ['not-started', 'in-progress', 'completed'];
-                const next = (order.indexOf(t.status) + 1) % 3;
-                return {...t, status: order[next]};
-            }
-            return t;
-        }));
-    };
+  const updateStatus = (id) => {
+    setTechnologies(prev => prev.map(t => {
+      if (t.id ===  id) {
+        const order = ['not-started', 'in-progress', 'completed'];
+        const next = (order.indexOf(t.status) + 1) % 3;
+        return {...t, status: order[next]};
+      }
+      return t;
+    }));
+  };
 
-    const updateNote = (id, newNote) => {
-      setTechnologies(prev =>prev.map(t => t.id === id ? {...t, note: newNote} : t));
-    };
+  const updateNote = (id, newNote) => {
+    setTechnologies(prev =>prev.map(t => t.id === id ? {...t, note: newNote} : t));
+  };
 
-    const filteredTechs = technologies.filter(t => {
-        if (filter === 'all') return true;
-        return t.status === filter;
-    });
+  const filteredTechs = technologies.filter(t => {
+    if (filter === 'all') return true;
+    return t.status === filter;
+  });
 
   return (
     <div className='App'>
