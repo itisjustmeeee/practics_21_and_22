@@ -6,7 +6,7 @@ const statusConfig = {
     'not-started': {label: 'NOT STARTED', color: '#fca5a5'}
 }
 
-function TechnologyCard({tech, onStatusChange}) {
+function TechnologyCard({tech, onStatusChange, onNoteChange}) {
     const { label, color } = statusConfig[tech.status];
 
     return (
@@ -17,6 +17,14 @@ function TechnologyCard({tech, onStatusChange}) {
             boxShadow: `0 8px 20px rgba(0,0,0,0.1)`,
             transition: 'all 0.4s ease'
         }}>
+            <textarea
+                className='note-inupt'
+                placeholder='Заметка'
+                value={tech.note || ''}
+                onChange={(e) => onNoteChange(tech.id, e.target.value)}
+                onClick={(e) => e.stopPropagation()}
+            />
+
             <div className='card-header'>
                 <h3>{tech.title}</h3>
             </div>

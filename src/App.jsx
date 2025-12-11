@@ -3,21 +3,32 @@ import Greeting from './Greeting';
 import UserCard from './UserCard';
 import TechnologyCard from './TechnologyCard';
 import Photo_profile from './assets/photo_profile.jpg';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Statistics from './Statistics';
 import QuickActions from './QuickActions';
 import FilterTabs from './FilterTabs';
 
 function App() {
 
-  const [technologies, setTechnologies] = useState([
-        {id: 1, title: 'JSX и React', desc: 'Изучение работы JSX b React компонентов для контрольной работы', status: 'in-progress', category: 'Frontend', icon: '(-_-)'},
-        {id: 2, title: 'SQL', desc: 'Изучение функций SQL к контрольной работе', status: 'completed', category: 'Backend', icon: '(-^-)'},
-        {id: 3, title: 'C#', desc: 'Изучение базовых функций C# к контрольной работе', status: 'not-started', category: 'Backend', icon: '(>_<)'},
-        {id: 4, title: 'Python', desc: 'Изучение языка Python для решения задач по ИИ и базам данных', status: 'in-progress', category: 'Data Science', icon: '<(-~-)>'}
-    ]);
+  const [technologies, setTechnologies] = useState(() => {
+    const saved = localStorage.getItem('technologies');
+    if (saved) {
+      return JSON.parse(saved);
+    }
+
+    return [
+      {id: 1, title: 'JSX и React', desc: 'Изучение работы JSX b React компонентов для контрольной работы', status: 'in-progress', category: 'Frontend', icon: '(-_-)', note: ''},
+      {id: 2, title: 'SQL', desc: 'Изучение функций SQL к контрольной работе', status: 'completed', category: 'Backend', icon: '(-^-)', note: ''},
+      {id: 3, title: 'C#', desc: 'Изучение базовых функций C# к контрольной работе', status: 'not-started', category: 'Backend', icon: '(>_<)', note: ''},
+      {id: 4, title: 'Python', desc: 'Изучение языка Python для решения задач по ИИ и базам данных', status: 'in-progress', category: 'Data Science', icon: '<(-~-)>', note: ''}
+    ];
+  });
 
     const [filter, setFilter] = useState('all');
+
+    useEffect(() => {
+      localStorage.setItem('technologies', JSON.stringify(technologies));
+    }, [technologies]);
 
     const markAllCompleted = () => {
         setTechnologies(prev => prev.map(t => ({...t, status: 'completed'})));
@@ -43,6 +54,10 @@ function App() {
             }
             return t;
         }));
+    };
+
+    const updateNote = (id, newNote) => {
+      setTechnologies(prev =>prev.map(t => t.id === id ? {...t, note: newNote} : t));
     };
 
     const filteredTechs = technologies.filter(t => {
@@ -71,7 +86,7 @@ function App() {
 
       <main className="tech-grid">
         {filteredTechs.length === 0 ? (
-          <p className="empty-message">Ничего не найдено по фильтру "{filter}"</p>) : (filteredTechs.map(tech => (<TechnologyCard key={tech.id} tech={tech} onStatusChange={updateStatus} />))
+          <p className="empty-message">Ничего не найдено по фильтру "{filter}"</p>) : (filteredTechs.map(tech => (<TechnologyCard key={tech.id} tech={tech} onStatusChange={updateStatus} onNoteChange={updateNote}/>))
         )}
       </main>
     </div>
