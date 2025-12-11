@@ -65,7 +65,7 @@
   font-size: 3.5em;
   margin: 0 0 16px 0;
   font-weight: 800;
-  background: black;
+  background: linear-gradient(90deg, #1f1f1e, #4d4c4c, #5f5f60, #6d6e6f);;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -211,7 +211,7 @@
   background:  rgba(255, 255, 255, 0.5);
 }
 
-.note-inupt {
+.note-input {
   width: 100%;
   min-height: 80px;
   margin-top: 16px;
@@ -224,7 +224,7 @@
   transition: border-color 0.3s;
 }
 
-.note-inupt:focus {
+.note-input:focus {
   outline: none;
   border-color: #60a5fa;
   background: white;
