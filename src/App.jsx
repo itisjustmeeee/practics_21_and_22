@@ -25,6 +25,7 @@ function App() {
   });
 
   const [filter, setFilter] = useState('all');
+  const [ searchQuery, setSearchQuery ] = useState('');
 
   useEffect(() => {
     localStorage.setItem('technologies', JSON.stringify(technologies));
@@ -60,10 +61,14 @@ function App() {
     setTechnologies(prev =>prev.map(t => t.id === id ? {...t, note: newNote} : t));
   };
 
-  const filteredTechs = technologies.filter(t => {
-    if (filter === 'all') return true;
-    return t.status === filter;
-  });
+  const filteredTechs = technologies
+  .filter(t => filter === 'all' || t.status === filter)
+  .filter(t => 
+    t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    t.desc.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const resultCount = filteredTechs.length;
 
   return (
     <div className='App'>
@@ -78,6 +83,20 @@ function App() {
         <h1>Что-то на потом, возможно</h1>
         <Statistics technologies={technologies} />
       </header>
+
+      <div className='search-bar'>
+        <input
+          type='text'
+          placeholder='Поиск по названию или описанию'
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className='search-input'
+        />
+        <span className='result-search'>
+          Найдено: {resultCount} {resultCount === 1 ? 'технология' : 'технологии(й)'}
+        </span>
+      </div>
+
       <QuickActions onMarkAll={markAllCompleted}
       onReset={resetAll}
       onRandom={pickRandom} />
