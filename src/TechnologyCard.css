@@ -1,13 +1,16 @@
 .tech-card {
-    background: rgb(147, 147, 147);
+    /*background: rgb(147, 147, 147);*/
+    background: white;
+    color: #1f2937;
     border-radius: 16px;
-    padding: 20px;
-    margin: 12px;
-    border: 3px solid #e5e7eb;
+    padding: 24px;
+    margin: 16px;
+    border: 3px solid transparent;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .tech-card:hover {
@@ -96,19 +99,28 @@
 
 .note-input {
   width: 100%;
-  min-height: 80px;
-  margin-top: 16px;
+  min-height: 100px;
+  margin: 16px 0 0 0;
   padding: 12px;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
   font-size: 1em;
   resize: vertical;
-  background: #f8fafc;
-  transition: border-color 0.3s;
+  background: white;
+  color: #1f2937;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  font-family: inherit;
 }
 
 .note-input:focus {
   outline: none;
   border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
   background: white;
+}
+
+.note-input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
 }

@@ -17,6 +17,12 @@ function TechnologyCard({tech, onStatusChange, onNoteChange}) {
             boxShadow: `0 8px 20px rgba(0,0,0,0.1)`,
             transition: 'all 0.4s ease'
         }}>
+
+            <div className='card-header'>
+                <h3>{tech.title}</h3>
+            </div>
+
+            <p className='description'>{tech.desc}</p>
             <textarea
                 className="note-input"
                 placeholder="Заметка"
@@ -24,12 +30,6 @@ function TechnologyCard({tech, onStatusChange, onNoteChange}) {
                 onChange={(e) => onNoteChange(tech.id, e.target.value)}
                 onClick={(e) => e.stopPropagation()}
             />
-
-            <div className='card-header'>
-                <h3>{tech.title}</h3>
-            </div>
-
-            <p className='description'>{tech.desc}</p>
 
             <div className='card-footer'>
                 <span className='category'>{tech.category}</span>
