@@ -86,13 +86,15 @@ function App() {
 
       <main className="tech-grid">
         {filteredTechs.length === 0 ? (
-          <p className="empty-message">Ничего не найдено по фильтру "{filter}"</p>
+          <p className="empty-message">
+            Ничего не найдено по фильтру "{filter}"
+          </p>
         ) : (
           filteredTechs.map(tech => (
             <TechnologyCard 
               key={tech.id} 
               tech={tech} 
-              onStatusChange={updateStatus} 
+              onStatusChange={updateStatus}
               onNoteChange={updateNote}
             />
           ))

@@ -18,8 +18,8 @@ function TechnologyCard({tech, onStatusChange, onNoteChange}) {
             transition: 'all 0.4s ease'
         }}>
             <textarea
-                className='note-input'
-                placeholder='Заметка'
+                className="note-input"
+                placeholder="Заметка"
                 value={tech.note || ''}
                 onChange={(e) => onNoteChange(tech.id, e.target.value)}
                 onClick={(e) => e.stopPropagation()}
