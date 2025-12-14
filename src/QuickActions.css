@@ -17,7 +17,7 @@
 
 .action-btn.success {background: #4ade80; color: rgb(84, 79, 79);}
 .action-btn.danger {background: #f87171; color:  rgb(84, 79, 79);}
-.action-btn.random {background: #7a56e6; color: rgb(84, 79, 79);}
+.action-btn.random {background: #cdd237; color: rgb(84, 79, 79);}
 
 .action-btn:hover {
     transform: scale(1.05);
