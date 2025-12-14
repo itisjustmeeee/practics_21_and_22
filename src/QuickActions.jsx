@@ -21,10 +21,10 @@ const QuickActions = ({onMarkAll, onReset, onRandom, onExport}) => {
     return (
         <>
             <div className='quick-actions'>
-                <button onClick={() => handleAction('complete')}>Отметить все как выполненное</button>
-                <button onClick={() => handleAction('reset')}>Сбросить все</button>
-                <button onClick={onRandom}>Случайная задача</button>
-                <button onClick={() => handleAction('export')}>Экспорт данных</button>
+                <button className='action-btn success' onClick={() => handleAction('complete')}>Отметить все как выполненное</button>
+                <button className='action-btn danger' onClick={() => handleAction('reset')}>Сбросить все</button>
+                <button className='action-btn random' onClick={onRandom}>Случайная задача</button>
+                <button className='action-btn' style={{background: '#60a5fa', color: 'white'}} onClick={() => handleAction('export')}>Экспорт данных</button>
             </div>
             <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title="Подтверждение">
                 <p>
